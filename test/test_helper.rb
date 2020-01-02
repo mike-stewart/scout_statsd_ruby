@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/unit'
 require 'minitest/pride'
-require 'mocha/mini_test'
+require 'mocha/minitest'
 
 require 'scout_apm'
 require 'statsd-instrument'
