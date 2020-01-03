@@ -3,6 +3,7 @@ module ScoutStatsd
     def call(payload)
       @payload = payload
       StatsD.measure("#{ScoutStatsd.prefix}#{payload.transaction_type_slug}.duration_ms", payload.duration_ms)
+      StatsD.increment("#{ScoutStatsd.prefix}#{payload.transaction_type_slug}.total_count")
 
       if payload.queue_time_ms
         StatsD.measure("#{ScoutStatsd.prefix}#{payload.transaction_type_slug}.queue_time_ms", payload.queue_time_ms)
